@@ -20,7 +20,7 @@ export const POST = async (request: NextRequest) => {
   // const roomkey = (<Payload>payload).roomId
   // const roomname = (<Payload>payload).roomName
   
-  if(payload === null) {
+  // if(payload === null) {
     return NextResponse.json(
       {
         ok: false,
@@ -28,7 +28,7 @@ export const POST = async (request: NextRequest) => {
       },
       { status: 401 }
     );
-  }
+  // }
 
 
   readDB();
