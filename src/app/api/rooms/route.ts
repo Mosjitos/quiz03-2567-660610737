@@ -20,40 +20,40 @@ export const POST = async (request: NextRequest) => {
   // const roomkey = (<Payload>payload).roomId
   // const roomname = (<Payload>payload).roomName
   
-  // if(checkToken()) {
-  //   return NextResponse.json(
-  //     {
-  //       ok: false,
-  //       message: "Invalid token",
-  //     },
-  //     { status: 401 }
-  //   );
-  // }
+  if(payload === null) {
+    return NextResponse.json(
+      {
+        ok: false,
+        message: "Invalid token",
+      },
+      { status: 401 }
+    );
+  }
 
 
-  // readDB();
+  readDB();
   // const rooms = DB.rooms
-  // const findR = rooms.find((R)=> R.roomId === roomkey)
+  // const findR = rooms.find((R:any)=> R.roomId === roomkey)
   // if( !findR){
-  //   return NextResponse.json(
-  //     {
-  //       ok: false,
-  //       message: `Room ${roomkey} already exists`,
-  //     },
-  //     { status: 400 }
-  //   );
+    return NextResponse.json(
+      {
+        ok: false,
+        message: `Room ${"roomkey"} already exists`,
+      },
+      { status: 400 }
+    );
   // }
 
 
 
-   const roomId = nanoid();
+  const roomId = nanoid();
 
-  // //call writeDB after modifying Database
+  //call writeDB after modifying Database
   // rooms.push({
   //   roomId: roomkey,
   //   roomName: roomname,
   // });
-  // writeDB();
+  writeDB();
 
    return NextResponse.json({
      ok: true,
