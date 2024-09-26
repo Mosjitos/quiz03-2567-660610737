@@ -4,8 +4,17 @@ import { nanoid } from "nanoid";
 import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (request: NextRequest) => {
+  const program_name = request.nextUrl.searchParams.get('program')
   readDB();
-
+  // const roomId = DB.roomId
+  //   const filter = roomId.filter((R)=> R.roomId === program_name)
+  //   if(filter){
+  //     return NextResponse.json({
+  //       ok: true,
+  //       message: filter,
+  //     });
+  //   }
+  
   // return NextResponse.json(
   //   {
   //     ok: false,
